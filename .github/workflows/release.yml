@@ -112,14 +112,14 @@ jobs:
         run: |
           gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 || \
             gh release create "$GITHUB_REF_NAME" --title "free-pi-cli $GITHUB_REF_NAME" --generate-notes
+          mkdir -p dist/assets
           for dir in dist/npm/*/; do
             platform=$(basename "$dir" | sed 's/^free-pi-cli-//')
             for file in "$dir"bin/*; do
-              ext=""
-              case "$file" in *.exe) ext=".exe" ;; esac
-              gh release upload "$GITHUB_REF_NAME" "$file#free-pi-cli-$platform$ext" --clobber
+              cp "$file" "dist/assets/free-pi-cli-$platform${file##*/free-pi-cli}"
             done
           done
+          gh release upload "$GITHUB_REF_NAME" dist/assets/* --clobber
 
       # Skipped until an NPM_TOKEN repository secret exists; the GitHub release
       # above still ships every platform binary.
