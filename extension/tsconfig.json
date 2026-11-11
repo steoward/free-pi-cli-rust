@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@freepi/shared": ["./vendor/shared/index.ts"],
+      "@freepi/pi-ads": ["./vendor/pi-ads/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "vendor/**/*.ts"]
+}

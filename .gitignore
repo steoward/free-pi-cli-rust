@@ -1,0 +1,6 @@
+/target
+/node_modules
+/extension/node_modules
+/npm/free-pi-cli-*/bin/free-pi-cli
+/npm/free-pi-cli-*/bin/free-pi-cli.exe
+.DS_Store

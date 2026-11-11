@@ -1,0 +1,7 @@
+* text=auto eol=lf
+
+*.exe binary
+*.js linguist-language=JavaScript
+
+assets/free-pi-extension.js linguist-generated=true
+npm/*/bin/* binary

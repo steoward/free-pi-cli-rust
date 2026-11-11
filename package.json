@@ -1,0 +1,63 @@
+{
+  "name": "free-pi-cli",
+  "version": "0.7.0",
+  "description": "Free, ad-supported distribution of the pi coding agent. A Rust CLI handles consent, sign-in, and configuration, then launches pi with Bun.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "free-pi-cli": "./bin/free-pi-cli.js"
+  },
+  "files": [
+    "bin/free-pi-cli.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "os": [
+    "win32",
+    "darwin",
+    "linux"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "engines": {
+    "bun": ">=1.0.0",
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "build:extension": "bun build extension/src/main.ts --target=node --format=esm --outfile assets/free-pi-extension.js --external @earendil-works/pi-coding-agent --external @earendil-works/pi-tui --external typebox",
+    "build": "bun run build:extension && cargo build --release",
+    "package:npm": "node scripts/package-npm.mjs",
+    "verify": "node scripts/verify-release.mjs",
+    "test": "cargo test",
+    "fmt": "cargo fmt --check",
+    "lint": "cargo clippy --all-targets -- -D warnings",
+    "prepublishOnly": "node scripts/verify-release.mjs"
+  },
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "1.5.2"
+  },
+  "optionalDependencies": {
+    "free-pi-cli-darwin-arm64": "0.7.0",
+    "free-pi-cli-darwin-x64": "0.7.0",
+    "free-pi-cli-linux-arm64": "0.7.0",
+    "free-pi-cli-linux-x64": "0.7.0",
+    "free-pi-cli-win32-arm64": "0.7.0",
+    "free-pi-cli-win32-x64": "0.7.0"
+  },
+  "keywords": [
+    "coding-agent",
+    "ai",
+    "cli",
+    "pi",
+    "rust",
+    "bunx"
+  ],
+  "author": "DappHero Corp / Dennison Bertram",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steoward/free-pi-cli-rust.git"
+  },
+  "homepage": "https://freepi.ai"
+}

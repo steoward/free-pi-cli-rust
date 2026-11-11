@@ -1,0 +1,15 @@
+{
+  "name": "free-pi-extension",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun build src/main.ts --target=node --format=esm --outfile ../assets/free-pi-extension.js --external @earendil-works/pi-coding-agent --external @earendil-works/pi-tui --external typebox"
+  },
+  "dependencies": {
+    "@gravity-ai/api": "1.2.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "typebox": "^1.3.7"
+  }
+}

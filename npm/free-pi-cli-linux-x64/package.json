@@ -1,0 +1,18 @@
+{
+  "name": "free-pi-cli-linux-x64",
+  "version": "0.7.0",
+  "description": "Native free-pi-cli binary for Linux x64 (glibc).",
+  "license": "MIT",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "files": [
+    "bin/free-pi-cli"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
