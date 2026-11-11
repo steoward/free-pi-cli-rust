@@ -113,8 +113,11 @@ jobs:
           gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 || \
             gh release create "$GITHUB_REF_NAME" --title "free-pi-cli $GITHUB_REF_NAME" --generate-notes
           for dir in dist/npm/*/; do
+            platform=$(basename "$dir" | sed 's/^free-pi-cli-//')
             for file in "$dir"bin/*; do
-              gh release upload "$GITHUB_REF_NAME" "$file" --clobber
+              ext=""
+              case "$file" in *.exe) ext=".exe" ;; esac
+              gh release upload "$GITHUB_REF_NAME" "$file#free-pi-cli-$platform$ext" --clobber
             done
           done
 
