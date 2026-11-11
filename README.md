@@ -152,6 +152,11 @@ free-pi-cli-linux-arm64
 `scripts/verify-release.mjs` checks that `Cargo.toml`, the root package, every
 platform package, and the pinned pi version agree.
 
+Every tagged release also attaches those six binaries to the GitHub release as
+`free-pi-cli-<platform>` (`free-pi-cli-win32-x64.exe` on Windows), so a binary
+can be downloaded directly from
+[Releases](https://github.com/steoward/free-pi-cli-rust/releases) without npm.
+
 CI (`.github/workflows/ci.yml`) builds the extension, runs Rust formatting,
 clippy, tests, and a release build. Tagging `v<version>` triggers
 `.github/workflows/release.yml`, which builds all six targets, attaches every
