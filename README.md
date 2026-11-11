@@ -154,9 +154,10 @@ platform package, and the pinned pi version agree.
 
 CI (`.github/workflows/ci.yml`) builds the extension, runs Rust formatting,
 clippy, tests, and a release build. Tagging `v<version>` triggers
-`.github/workflows/release.yml`, which builds all six targets, publishes the
-platform packages first, then publishes `free-pi-cli`. Add an `NPM_TOKEN`
-repository secret before tagging.
+`.github/workflows/release.yml`, which builds all six targets, attaches every
+platform binary to the GitHub release for that tag, then publishes the platform
+packages and `free-pi-cli` to npm. The npm publish steps are skipped until an
+`NPM_TOKEN` repository secret exists.
 
 Because the `free-pi-cli` name on npm is already owned by the upstream
 project, publishing this rewrite requires access to that package name (or
